@@ -1,0 +1,15 @@
+name: Ephemeral Orka Runner Demo
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: [self-hosted, my-ephemeral-runner]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run a simple command
+        run: |
+          echo "Running on ephemeral Orka runner"
+          sw_vers
