@@ -1,0 +1,17 @@
+name: Orka Ephemeral Runner Demo
+
+on:
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  demo-job:
+    runs-on: my-orka-runner  # Matches the RUNNERS name in .env
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run demo commands on Orka VM
+        run: |
+          echo "Hello from an ephemeral Orka VM!"
+          uname -a  # Prints system info to confirm macOS VM
+          sw_vers   # Prints macOS version
