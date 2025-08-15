@@ -1,0 +1,14 @@
+name: Orka Demo Workflow
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  demo-job:
+    runs-on: orka-demo-runner
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Run demo
+      run: echo "Hello from Orka ephemeral runner!"
